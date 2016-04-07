@@ -1,0 +1,1 @@
+{"version":3,"file":"helpers.js","sourceRoot":"","sources":["../../../src/model/bim/helpers.ts"],"names":[],"mappings":";AAGA,iBAA4B,QAAyC;IAEjE,IAAM,KAAK,GAAe,IAAI,CAAC;IAE/B,KAAK;SACA,IAAI,CAAC,EAAE,CAAC;SACR,IAAI,CAAE,UAAC,GAAU,EAAC,IAAO;QAEtB,MAAM,CAAC,QAAQ,CAAC,GAAG,EAAE,IAAI,CAAC,CAAC;IAC/B,CAAC,CAAC,CAAC;AACX,CAAC;AAVgB,eAAO,UAUvB,CAAA;AAAA,CAAC"}
