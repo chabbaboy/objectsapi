@@ -1,10 +1,10 @@
 import {Schema,Document,Model} from "mongoose";
-import {getBims} from "./helpers"
+import {getBims,getBimByGuid,getBimsCount} from "./helpers"
 
 export const BimSchema = new Schema({
 
     guid: {type: String},
-    complex: {type: String},
+    complex: Schema.Types.Mixed,
     entity :  {type: String},
     model :  {type: String},
     category :  {type: String},
@@ -18,20 +18,13 @@ export const BimSchema = new Schema({
 });
 
 BimSchema.static("getBims",getBims);
+BimSchema.static("getBimsCount",getBimsCount);
+BimSchema.static("getBimByGuid",getBimByGuid);
 
-/*
-BimSchema.static("getBims2", async function () {
-    const data = await this.find({}).exec();
 
-    return Promise.resolve({
-        _id: 2,
-        _inner: data
-    });
-});
-*/
 export interface IBim extends  Document{
     guid: string;
-    complex: string;
+    complex: Object;
     entity : string;
     model :  string;
     category :  string;
@@ -45,7 +38,28 @@ export interface IBim extends  Document{
 }
 export interface IBimModel extends Model<IBim>{
 
-    getBims: ( callback: (error: Error, data: {}) => void ) => void ;
-  //  getBims2: ( callback: (error: Error, data: {}) => void ) => void ;
+    getBims: ( data:Array, options:Object, callback: (error: Error, data: {}) => void ) => void ;
+    getBimByGuid: ( guid:string,options:Object, callback: (error: Error, data: {}) => void ) => void ;
+    getBimsCount: ( data:Array,callback: (error: Error, data: {}) => void ) => void ;
+
+
+}
+export interface IBimOptions {
+    limit: number;
+    skip: number;
+    sort : string;
+    projection :  Array;
+}
+export interface IBimOptionsRaw {
+    limit: number;
+    skip: number;
+    sort : string;
+    projection :  Array;
+}
+export interface IBimOptionsProcessed {
+    limit: number;
+    skip: number;
+    sort : string;
+    projection :  Object;
 }
 

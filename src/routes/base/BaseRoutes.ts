@@ -11,7 +11,7 @@ export function useRoutes(app: any){
         app.use('/api',new ConfigRouter().getRouter());
         app.use("/api",new RoomModelRouter().getRouter());
         app.use("/api", new RoomParametersRouter().getRouter());
-        app.use("/", new BimRouter().getRouter());
+        app.use("/api", new BimRouter().getRouter());
 
 
 }

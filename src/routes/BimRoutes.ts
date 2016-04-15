@@ -1,5 +1,6 @@
 import {Router, Request, Response} from "express";
  import {BimModel} from "../model/bim/model";
+import * as url from "url";
 
 export class BimRouter {
 
@@ -7,21 +8,51 @@ export class BimRouter {
 
     getRouter():Router {
 
-        this.router.get('/bims', (req:Request, res:Response)=> {
+        this.router.post('/objects', (req:Request, res:Response)=> {
 
-            BimModel.getBims( function (err, docs) {
+            console.log("router find all")
+
+            var url_parts = url.parse(req.url, true);
+
+            BimModel.getBims(req.body,url_parts.query, function (err, docs) {
 
                 return   res.json(docs);
             });
         });
-/*
-        this.router.get('/bims2', async function (req, res) {
 
-            const data = await BimModel.getBims2;
+        this.router.get('/objects/:guid', (req:Request, res:Response)=> {
 
-            res.json(data);
+            console.log("router find One")
+
+            var url_parts = url.parse(req.url, true);
+
+            BimModel.getBimByGuid(req.params.guid ,url_parts.query, function (err, docs) {
+
+                return   res.json(docs);
+            });
         });
-*/
+        
+        this.router.post('/objects', (req:Request, res:Response)=> {
+
+            console.log("router find all")
+
+            var url_parts = url.parse(req.url, true);
+
+            BimModel.getBims(req.body,url_parts.query, function (err, docs) {
+
+                return   res.json(docs);
+            });
+        });
+        this.router.post('/objects/count', (req:Request, res:Response)=> {
+
+            console.log("router count")
+
+            BimModel.getBimsCount(req.body, function (err, docs) {
+
+                return   res.json(docs);
+            });
+        });
+
         return this.router;
 
     }

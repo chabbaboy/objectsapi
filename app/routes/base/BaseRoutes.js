@@ -9,7 +9,7 @@ function useRoutes(app) {
     app.use('/api', new RoomConfigRoutes_1.ConfigRouter().getRouter());
     app.use("/api", new RoomModelRoutes_1.RoomModelRouter().getRouter());
     app.use("/api", new RoomParametersRoutes_1.RoomParametersRouter().getRouter());
-    app.use("/", new BimRoutes_1.BimRouter().getRouter());
+    app.use("/api", new BimRoutes_1.BimRouter().getRouter());
 }
 exports.useRoutes = useRoutes;
 //# sourceMappingURL=BaseRoutes.js.map
