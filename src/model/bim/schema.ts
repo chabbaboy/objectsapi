@@ -1,5 +1,5 @@
 import {Schema,Document,Model} from "mongoose";
-import {getBims,getBimByGuid,getBimsCount} from "./helpers"
+import {getBims,getBimByGuid,getBimsCount,getBimComplex} from "./helpers"
 
 export const BimSchema = new Schema({
 
@@ -20,6 +20,7 @@ export const BimSchema = new Schema({
 BimSchema.static("getBims",getBims);
 BimSchema.static("getBimsCount",getBimsCount);
 BimSchema.static("getBimByGuid",getBimByGuid);
+BimSchema.static("getBimComplex",getBimComplex);
 
 
 export interface IBim extends  Document{
@@ -41,6 +42,7 @@ export interface IBimModel extends Model<IBim>{
     getBims: ( data:Array, options:Object, callback: (error: Error, data: {}) => void ) => void ;
     getBimByGuid: ( guid:string,options:Object, callback: (error: Error, data: {}) => void ) => void ;
     getBimsCount: ( data:Array,callback: (error: Error, data: {}) => void ) => void ;
+    getBimComplex: (callback: (error: Error, data: {}) => void ) => void ;
 
 
 }

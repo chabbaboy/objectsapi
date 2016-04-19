@@ -28,6 +28,15 @@ export class BimRouter {
             });
         });
 
+        this.router.get('/complex', (req:Request, res:Response)=> {
+
+
+            BimModel.getBimComplex( function (err, docs) {
+
+                return   res.json(docs);
+            });
+        });
+
         this.router.post('/objects/count', (req:Request, res:Response)=> {
             
             BimModel.getBimsCount(req.body, function (err, docs) {

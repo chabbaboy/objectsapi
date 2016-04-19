@@ -15,9 +15,3 @@ app.use(bodyParser.json());
 useRoutes(app);
 
 app.listen(3000);
-
-
-
-
-
-

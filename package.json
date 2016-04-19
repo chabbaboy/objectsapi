@@ -4,7 +4,7 @@
   "scripts": {
     "start": "node app/app.js",
     "importdata": "node app/importBimObjects.js",
-    "typings": "typings install express --save --ambient &&  typings install serve-static --save --ambient && typings install express-serve-static-core --save --ambient && typings install mime --save --ambient && typings install node --save --ambient && typings install body-parser --save --ambient",
+    "typings": "typings install express --save --ambient &&  typings install serve-static --save --ambient && typings install express-serve-static-core --save --ambient && typings install mime --save --ambient && typings install node --save --ambient && typings install body-parser --save --ambient && typings install mongoose --save --ambient",
     "compile": "tsc -w"
   },
   "dependencies": {
