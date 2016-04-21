@@ -1,7 +1,7 @@
 
 export const bimObject : Array<Object> = [
     {
-        "complex": "RPC_Trelleborg",
+        "complex" : {"name": "RPC_Trelleborg"},
         "entity": [
             {
                 "entity": "RPC_Trelleborg_Inredning",
@@ -55,7 +55,7 @@ export const bimObject : Array<Object> = [
 
     },
     {
-        "complex": "Stadsgården",
+        "complex" : {"name": "Stadsgården"},
         "entity": [
             {
                 "entity": "Stadsgården1",
@@ -92,7 +92,7 @@ export const bimObject : Array<Object> = [
 
     },
     {
-        "complex": "NKS",
+        "complex" : {"name": "NKS"},
         "entity": [
             {
                 "entity": "NKS Lös Inredning",
@@ -144,7 +144,7 @@ export const bimObject : Array<Object> = [
 
     },
     {
-        "complex": "FRIIDROTTS- & SPORTARENOR",
+        "complex" : {"name": "FRIIDROTTS- & SPORTARENOR"},
         "entity": [
             {
                 "entity": "FRIIDROTTS- & SPORTARENOR",
@@ -166,10 +166,208 @@ export const bimObject : Array<Object> = [
 
     },
     {
-        "complex": "VATTEN",
+        "complex" : {"name": "VATTEN"},
         "entity": [
             {
                 "entity": "STOCKHOLM VATTEN",
+                "model": [
+                    {
+                        "model": "STV Högdalen",
+                        "level":[
+                            "Plan 3",
+                            "Plan 4"
+                        ]
+                    },
+                    {
+                        "model": "STV Ulvsunda",
+                        "level":[
+                            "Plan 4",
+                            "Plan 5",
+                            "Plan 6",
+                            "Plan 7"
+                        ]
+                    },
+                    {
+                        "model": "sthlmv",
+                        "level":[
+                            "Plan 1",
+                            "Plan 2"
+                        ]
+                    }
+
+
+                ]
+            }
+        ]
+
+    },
+    {
+        "complex" : {"name": "Parkuša"},
+        "entity": [
+            {
+                "entity": "Mehmeda Spahe 1",
+                "model": [
+                    {
+                        "model": "Model 1",
+                        "level":[
+                            "Plan a",
+                            "Plan b"
+                        ]
+                    },
+                    {
+                        "model": "Model Ulvsunda",
+                        "level":[
+                            "Plan a",
+                            "Plan b",
+                            "Plan c",
+                            "Plan d"
+                        ]
+                    },
+                    {
+                        "model": "sthlmv",
+                        "level":[
+                            "Plan 1",
+                            "Plan 2"
+                        ]
+                    }
+
+
+                ]
+            },
+            {
+                "entity": "Mehmeda Spahe 2",
+                "model": [
+                    {
+                        "model": "STV Högdalen",
+                        "level":[
+                            "Plan 3",
+                            "Plan 4"
+                        ]
+                    },
+                    {
+                        "model": "STV Ulvsunda",
+                        "level":[
+                            "Plan 4",
+                            "Plan 5",
+                            "Plan 6",
+                            "Plan 7"
+                        ]
+                    },
+                    {
+                        "model": "sthlmv",
+                        "level":[
+                            "Plan 1",
+                            "Plan 2"
+                        ]
+                    }
+
+
+                ]
+            }
+        ]
+
+    },
+    {
+        "complex" : {"name": "Parkuša 2"},
+        "entity": [
+            {
+                "entity": "Mehmeda Spahe 3",
+                "model": [
+                    {
+                        "model": "Model 1",
+                        "level":[
+                            "Plan a",
+                            "Plan b"
+                        ]
+                    },
+                    {
+                        "model": "Model Ulvsunda",
+                        "level":[
+                            "Plan a",
+                            "Plan b",
+                            "Plan c",
+                            "Plan d"
+                        ]
+                    },
+                    {
+                        "model": "sthlmv",
+                        "level":[
+                            "Plan 1",
+                            "Plan 2"
+                        ]
+                    }
+
+
+                ]
+            },
+            {
+                "entity": "Mehmeda Spahe 4",
+                "model": [
+                    {
+                        "model": "STV Högdalen",
+                        "level":[
+                            "Plan 3",
+                            "Plan 4"
+                        ]
+                    },
+                    {
+                        "model": "STV Ulvsunda",
+                        "level":[
+                            "Plan 4",
+                            "Plan 5",
+                            "Plan 6",
+                            "Plan 7"
+                        ]
+                    },
+                    {
+                        "model": "sthlmv",
+                        "level":[
+                            "Plan 1",
+                            "Plan 2"
+                        ]
+                    }
+
+
+                ]
+            }
+        ]
+
+    },
+    {
+        "complex" : {"name": "Parkuša 3"},
+        "entity": [
+            {
+                "entity": "Mehmeda Spahe 5",
+                "model": [
+                    {
+                        "model": "Model 1",
+                        "level":[
+                            "Plan a",
+                            "Plan b"
+                        ]
+                    },
+                    {
+                        "model": "Model Ulvsunda",
+                        "level":[
+                            "Plan a",
+                            "Plan b",
+                            "Plan c",
+                            "Plan d"
+                        ]
+                    },
+                    {
+                        "model": "sthlmv",
+                        "level":[
+                            "Plan 1",
+                            "Plan 2"
+                        ]
+                    }
+
+
+                ]
+            },
+            {
+                "entity": "Mehmeda Spahe 6",
                 "model": [
                     {
                         "model": "STV Högdalen",

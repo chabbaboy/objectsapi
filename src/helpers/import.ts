@@ -14,7 +14,16 @@ export function insertBimObjects():void {
         bimValues.push(lvBimObject);
     }
     console.log("insert bimObjects starts");
-    BimModel.collection.insert(bimValues);
+    BimModel.collection.insert(bimValues,  function onInsert(err, docs) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.info('%d documents were successfully stored.', bimValues.length);
+        }
+    });
+
+
+
 
 
 }

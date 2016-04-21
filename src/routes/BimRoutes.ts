@@ -28,13 +28,11 @@ export class BimRouter {
             });
         });
 
-        this.router.get('/complex', (req:Request, res:Response)=> {
+        this.router.get('/complex', async (req:Request, res:Response)=> {
 
+            const data = await BimModel.getBimComplex();
+            return res.json(data);
 
-            BimModel.getBimComplex( function (err, docs) {
-
-                return   res.json(docs);
-            });
         });
 
         this.router.post('/objects/count', (req:Request, res:Response)=> {

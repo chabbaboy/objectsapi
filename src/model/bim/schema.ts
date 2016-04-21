@@ -23,6 +23,7 @@ BimSchema.static("getBimByGuid",getBimByGuid);
 BimSchema.static("getBimComplex",getBimComplex);
 
 
+
 export interface IBim extends  Document{
     guid: string;
     complex: Object;
@@ -42,8 +43,7 @@ export interface IBimModel extends Model<IBim>{
     getBims: ( data:Array, options:Object, callback: (error: Error, data: {}) => void ) => void ;
     getBimByGuid: ( guid:string,options:Object, callback: (error: Error, data: {}) => void ) => void ;
     getBimsCount: ( data:Array,callback: (error: Error, data: {}) => void ) => void ;
-    getBimComplex: (callback: (error: Error, data: {}) => void ) => void ;
-
+    getBimComplex: () => void;
 
 }
 export interface IBimOptions {

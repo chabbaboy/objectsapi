@@ -11,7 +11,6 @@ export function getRandomBimObject():{} {
 
     let result = {};
 
-
     const bimRandomObject  = bimObject[Math.floor(Math.random() * bimObject.length)];
     result["complex"]  = bimRandomObject.complex;
 

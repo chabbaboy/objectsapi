@@ -84,7 +84,6 @@ export function getBimsCount(data:Array, callback:(error:Error, data:{})=> void)
         });
 };
 
-
 export function getBims(data:Array, options:IBimOptionsRaw, callback:(error:Error, data:{})=> void):void {
 
     const query = getTransformedBimObject(data);
@@ -100,7 +99,6 @@ export function getBims(data:Array, options:IBimOptionsRaw, callback:(error:Erro
             return callback(err, docs);
         });
 };
-
 
 export function getBimByGuid(guid,options:IBimOptionsRaw, callback:(error:Error, data:{})=> void):void {
 
@@ -118,49 +116,46 @@ export function getBimByGuid(guid,options:IBimOptionsRaw, callback:(error:Error,
         });
 };
 
-export function getBimComplex( callback:(error:Error, data:{})=> void):void {
+export function getBimComplex(): Promise<any> {
 
     const query =[
 
-            {  $group:  {
-                "_id": {  complex: "$complex.name",entity:"$entity","level":"$level" },
-                "documents_no": { $sum: 1 }
+        {  $group:  {
+            "_id": {  complex: "$complex.name",entity:"$entity","level":"$level" },
+            "documents_no": { $sum: 1 }
+        }
+        },
+        { $group: {
+            "_id": {complex: "$_id.complex", entity:"$_id.entity"} ,
+            "level": {   "$push": {
+                "name": "$_id.level",
+                "document_no": "$documents_no"
             }
             },
-            { $group: {
-                "_id": {complex: "$_id.complex", entity:"$_id.entity"} ,
-                "level": {   "$push": {
-                    "name": "$_id.level",
-                    "document_no": "$documents_no"
+            "documents_no": { "$sum": "$documents_no" }
+        }
+        },
+        {
+            $group: {
+                "_id": {complex: "$_id.complex"} ,
+                "entity": {   "$push": {
+                    "name": "$_id.entity",
+                    "level": "$level",
+                    "documents_no": "$documents_no"
                 }
+
                 },
                 "documents_no": { "$sum": "$documents_no" }
             }
-            },
-            {
-                $group: {
-                    "_id": {complex: "$_id.complex"} ,
-                    "entity": {   "$push": {
-                        "name": "$_id.entity",
-                        "level": "$level",
-                        "documents_no": "$documents_no"
-                    }
+        },
+        {
+            $project: { _id:0, complex : "$_id.complex",  entity : "$entity",documents_no:"$documents_no"}
+        }
+    ];
 
-                    },
-                    "documents_no": { "$sum": "$documents_no" }
-                }
-            },
-            {
-                $project: { _id:0, complex : "$_id.complex",  entity : "$entity",documents_no:"$documents_no"}
-            }
-        ];
+    const model: IBimModel = this;
 
-    const model:IBimModel = this;
-
-    model
+    return model
         .aggregate(query )
-        .exec((err:Error, docs:{})=> {
-
-            return callback(err, docs);
-        });
-};
+        .exec();
+}
